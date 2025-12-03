@@ -1,3 +1,7 @@
+/* source.txt内のテキストを一行ずつ読み込み、copy.txtに書き込む
+   ビルドエラーにはならないが、copy.txtを開くと中身に記述が全くない問題
+*/
+
 package pack;
 import java.io.*;
 
