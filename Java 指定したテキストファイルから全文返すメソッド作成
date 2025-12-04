@@ -1,0 +1,46 @@
+package sample;
+import java.util.*;
+import java.io.*;
+
+public class problem
+{
+	public static String readAll(String path)
+	{
+		try(BufferedReader br = new BufferedReader(new FileReader(path)))
+		{
+			String str;
+			StringBuilder sb = new StringBuilder();
+			
+			while((str = br.readLine()) != null)
+			{
+				sb.append(str);
+				sb.append(System.lineSeparator());
+			}
+			
+			return sb.toString();
+			
+		}
+		catch(FileNotFoundException e)
+		{
+			System.out.println("ファイルが存在しません");
+		}
+		catch(IOException e)
+		{
+			System.out.println("読み込み失敗");
+		}
+		
+		return "";
+	}
+	
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("全文を返したいテキストファイルのパスを入力してください:");
+		String path = sc.nextLine();
+		System.out.println();
+		
+		System.out.println("【全文を表示】\r\n" + readAll(path));
+		
+	}
+}
