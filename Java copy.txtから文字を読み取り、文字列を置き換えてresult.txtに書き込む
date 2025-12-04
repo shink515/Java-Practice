@@ -1,0 +1,46 @@
+package sample;
+import java.io.*;
+import java.util.*;
+
+public class problem
+{
+	public static void main(String[] args)
+	{
+		BufferedWriter bw = null;
+		BufferedReader br = null;
+		
+		try
+		{
+			bw = new BufferedWriter(new FileWriter("c:\\users\\texir\\result.txt"));
+			br = new BufferedReader(new FileReader("c:\\users\\texir\\copy.txt"));
+			
+			String str;
+			while((str = br.readLine()) != null)
+			{
+				String replace = str.replace("{NAME}","Taro");
+				bw.write(replace + "\r\n");
+			}
+			
+		}
+		catch(FileNotFoundException e)
+		{
+			System.out.println("ファイルが存在しません");
+		}
+		catch(IOException e)
+		{
+			System.out.println("書き込み失敗");
+		}
+		finally
+		{
+			try
+			{
+				if(bw != null)bw.close();
+				if(br != null)br.close();
+			}
+			catch(IOException e)
+			{
+				System.out.println("ファイルクローズエラーです");
+			}
+		}
+	}
+}
