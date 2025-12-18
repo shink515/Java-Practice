@@ -11,7 +11,7 @@ public class Q_101
 		int sum = kokugo + sugaku + shakai;
 		double avg = (double)(sum / 3.0);
 		
-		double avg2 = (double)avg * 10;   //10倍した実数をavg2に格納
+		double avg2 = (double)avg * 10;   //10倍した実数をavg2に格納			← 今回記述していなかった点、10倍しても一度実数で格納すべき
 		
 		int avg3 = (int)avg2;			//10倍した実数を整数に変換
 		
