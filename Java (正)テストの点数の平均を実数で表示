@@ -1,0 +1,23 @@
+package shinzato;
+
+public class Q_101 
+{
+	public static void main(String args[])
+	{
+		int kokugo = 69;
+		int sugaku = 64;
+		int shakai = 87;
+		
+		int sum = kokugo + sugaku + shakai;
+		double avg = (double)(sum / 3.0);
+		
+		double avg2 = (double)avg * 10;   //10倍した実数をavg2に格納
+		
+		int avg3 = (int)avg2;			//10倍した実数を整数に変換
+		
+		double avg4 = (double)avg3 / 10;	// 10で割って実数に戻す
+		
+		System.out.println("合計:" + sum);
+		System.out.println("平均:" + avg4);
+	}
+}
