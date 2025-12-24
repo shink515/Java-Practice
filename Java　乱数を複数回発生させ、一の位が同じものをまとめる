@@ -1,0 +1,45 @@
+package shinzato;
+import java.util.*;
+
+public class Problem
+{
+	public static void main(String args[])
+	{
+		ArrayList<Integer> al = new ArrayList<Integer>();       // ArrayListクラスのオブジェクト生成　整数型の可変長配列を作成
+		
+		while(true)
+		{
+			int num = (int)(Math.random() * 101);              // 0~100の乱数を発生させ、整数型の変数numに格納
+			
+			System.out.println("0~100の値を出力:" + num);      // 乱数を文字列と一緒にコンソール表示
+			
+			if(num == 0)break;                      // もし乱数が格納されたnumが0だった場合、無限ループ終了
+			
+			al.add(num);                        // 乱数を可変長配列の中に格納
+		}
+		
+		System.out.println();          // 改行
+		
+		for(int i = 0 ; i <= 9 ; i++)        // iの初期値が0 , 9になるまで＋1をさせていき、ブロックの中の処理を繰り返す
+		{	
+			boolean found = false;                      // 真偽変数foundを宣言し、初期値としてfalseを代入
+			
+			System.out.print("一の位が" + i + ":");
+			for(Integer x : al)                        // 拡張for文を用いて配列の要素を1つずつ取り出す
+			{
+				if(x % 10 == i)                        // もし要素を10で割ったあまりがiだった場合　　指定した一の位と一致していた場合
+				{
+					System.out.print(x + " ");          //　スペースをはさんでコンソール出力
+					found = true;                      //　真偽変数にtrueを代入（要素が存在します）
+				}
+			}
+			
+			if(found == false)                    // もし真偽変数がfalseの場合（該当する要素が無い）
+			{
+				System.out.print("なし");          // なし と出力する
+			}
+			
+			System.out.println();                //改行
+		}
+	}
+}
