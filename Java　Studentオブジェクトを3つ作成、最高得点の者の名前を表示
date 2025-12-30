@@ -1,0 +1,61 @@
+//mainメソッド-------------------------------
+
+package shinzato;
+import java.util.Scanner;
+
+class Problem
+{
+	public static void main(String args[])
+	{
+		Student st[] = new Student[3];
+		Scanner sc = new Scanner(System.in);
+		int max = 0;
+		String maxname = "";
+		
+		for(int i = 0 ; i < st.length ; i++)
+		{
+			st[i] = new Student();
+		}
+		
+		for(int i = 0 ; i < st.length ; i++)
+		{
+			System.out.print(i + 1 + "人目の名前:");
+			String name = sc.nextLine();
+			st[i].name = name;
+			
+			System.out.print(i + 1 + "人目の点数:");
+			int score = sc.nextInt();
+			sc.nextLine();
+			st[i].score = score;
+		}
+		
+		System.out.println();
+		
+		for(int i= 0 ; i < st.length ; i++)
+		{
+			if(st[i].score > max) 
+			{
+				max = st[i].score;
+				maxname = st[i].name;
+			}
+		}
+		
+		System.out.println("最高得点:" + max + " 名前:" + maxname);
+	}
+}
+
+// Studentクラス--------------------------------------
+
+package shinzato;
+
+public class Student 
+{
+	public String name = "";
+	public int score = 0;
+	
+	public void show()
+	{
+		System.out.println("名前:" + name + " 点数:" + score);
+	}
+}
+
