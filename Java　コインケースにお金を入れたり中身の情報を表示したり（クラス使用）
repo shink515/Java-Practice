@@ -54,12 +54,12 @@ class Problem
 			int c = sc.nextInt();
 			sc.nextLine();
 			
-			cc.AddCoins(cur, c);
+			cc.AddCoins(cur, c);				// 硬貨の種類を指定してメンバーに枚数を加算
 		}
 		
 		System.out.println();
 		
-		System.out.println("【各硬貨の枚数と総額】");                      // 各硬貨の枚数をGetCountメソッドを使って各々返す
+		System.out.println("【各硬貨の枚数と総額】");                      // 各硬貨の枚数と総額をGetCountメソッドを使って各々返す
 		System.out.println("500円玉:" + cc.GetCount(500) + "枚," + cc.GetAmount(500) + "円分");
 		System.out.println("100円玉:" + cc.GetCount(100) + "枚," + cc.GetAmount(100) + "円分");
 		System.out.println("50円玉:" + cc.GetCount(50) + "枚," + cc.GetAmount(50) + "円分");
@@ -69,7 +69,7 @@ class Problem
 		
 		System.out.println();
 		
-		System.out.println("硬貨の総枚数:" + cc.GetCount() + "枚");
+		System.out.println("硬貨の総枚数:" + cc.GetCount() + "枚");		// 全硬貨の総枚数を引数なしGetCountメソッドで返す
 		
 		System.out.println();
 		
@@ -151,12 +151,12 @@ public class CoinCase
 		}
 	}
 	
-	public int GetCount()
+	public int GetCount()										// 硬貨の総枚数を返すメソッド
 	{
 		return fh + oh + ft + ten + five + one;
 	}
 	
-	public int GetAmount(int cur)
+	public int GetAmount(int cur)								// 硬貨ごとの総額を返すメソッド
 	{
 		if(cur == 500)
 		{
