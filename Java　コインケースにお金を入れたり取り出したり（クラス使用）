@@ -1,0 +1,154 @@
+/*--------------実行結果-----------------
+硬貨の種類を入力:500
+枚数を入力:2
+硬貨の種類を入力:100
+枚数を入力:8
+硬貨の種類を入力:50
+枚数を入力:15
+硬貨の種類を入力:1
+枚数を入力:299
+硬貨の種類を入力:500
+枚数を入力:2
+硬貨の種類を入力:100
+枚数を入力:20
+硬貨の種類を入力:10
+枚数を入力:11
+硬貨の種類を入力:500
+枚数を入力:5
+硬貨の種類を入力:50
+枚数を入力:13
+硬貨の種類を入力:1
+枚数を入力:20
+
+【各硬貨の枚数】
+500円玉:9
+100円玉:28
+50円玉:28
+10円玉:11
+5円玉:0
+1円玉:319
+
+総額:9129
+---------------------------------------
+mainクラス */
+
+package shinzato;
+import java.util.Scanner;
+
+class Problem
+{
+	public static void main(String args[])
+	{
+		CoinCase cc = new CoinCase();
+		Scanner sc = new Scanner(System.in);
+		
+		for(int i = 0 ; i < 10 ; i++)
+		{
+			System.out.print("硬貨の種類を入力:");            // コインの種類を指定（メンバーを指定）して枚数を加算する　10回入力
+			int cur = sc.nextInt();
+			sc.nextLine();
+			
+			System.out.print("枚数を入力:");
+			int c = sc.nextInt();
+			sc.nextLine();
+			
+			cc.AddCoins(cur, c);
+		}
+		
+		System.out.println();
+		
+		System.out.println("【各硬貨の枚数】");                      // 各硬貨の枚数をGetCountメソッドを使って各々返す
+		System.out.println("500円玉:" + cc.GetCount(500));
+		System.out.println("100円玉:" + cc.GetCount(100));
+		System.out.println("50円玉:" + cc.GetCount(50));
+		System.out.println("10円玉:" + cc.GetCount(10));
+		System.out.println("5円玉:" + cc.GetCount(5));
+		System.out.println("1円玉:" + cc.GetCount(1));
+		
+		System.out.println();
+		
+		System.out.println("総額:" + cc.GetAmount());              //　コインケース内の金額（各々通貨 × 金額の和）を返す
+	}
+}
+
+/* ------------------------------------------------
+コインケース クラス */
+
+package shinzato;
+
+public class CoinCase 
+{
+	private int fh = 0;                    // 500円玉、100円玉、50円玉、10円玉、5円玉、1円玉　の枚数を記録
+	private int oh = 0;
+	private int ft = 0;
+	private int ten = 0;
+	private int five = 0;
+	private int one = 0;
+	
+	public void AddCoins(int cur , int c)    // 引数に代入したコインの種類とコインの枚数に応じて、メンバーに枚数を加算
+	{
+		if(cur == 500)
+		{
+			fh += c;
+		}
+		if(cur == 100)
+		{
+			oh += c;
+		}
+		if(cur == 50)
+		{
+			ft += c;
+		}
+		if(cur == 10)
+		{
+			ten += c;
+		}
+		if(cur == 5)
+		{
+			five += c;
+		}
+		if(cur == 1)
+		{
+			one += c;
+		}
+	}
+	
+	public int GetCount(int cur)                    // 引数で指定したコインの枚数（メンバーの値）を返す関数
+	{
+		if(cur == 500)
+		{
+			return fh;
+		}
+		if(cur == 100)
+		{
+			return oh;
+		}
+		if(cur == 50)
+		{
+			return ft;
+		}
+		if(cur == 10)
+		{
+			return ten;
+		}
+		if(cur == 5)
+		{
+			return five;
+		}
+		if(cur == 1)
+		{
+			return one;
+		}
+		else
+		{
+			return 0;
+		}
+	}
+	
+	public int GetAmount()                  // コインケース内の総額（コインの枚数 × 金額の合計）を返すメソッド
+	{
+		return fh * 500 + oh * 100 + ft * 50 + ten * 10 + five * 5 + one * 1;
+	}
+	
+}
+
