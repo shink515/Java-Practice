@@ -1,34 +1,36 @@
 /*--------------実行結果-----------------
-硬貨の種類を入力:500
-枚数を入力:2
-硬貨の種類を入力:100
-枚数を入力:8
-硬貨の種類を入力:50
-枚数を入力:15
-硬貨の種類を入力:1
-枚数を入力:299
-硬貨の種類を入力:500
-枚数を入力:2
-硬貨の種類を入力:100
-枚数を入力:20
 硬貨の種類を入力:10
-枚数を入力:11
+枚数を入力:50
 硬貨の種類を入力:500
-枚数を入力:5
-硬貨の種類を入力:50
-枚数を入力:13
+枚数を入力:6
+硬貨の種類を入力:5
+枚数を入力:29
 硬貨の種類を入力:1
+枚数を入力:29
+硬貨の種類を入力:100
+枚数を入力:30
+硬貨の種類を入力:50
+枚数を入力:23
+硬貨の種類を入力:1
+枚数を入力:60
+硬貨の種類を入力:50
 枚数を入力:20
+硬貨の種類を入力:500
+枚数を入力:12
+硬貨の種類を入力:10
+枚数を入力:2
 
-【各硬貨の枚数】
-500円玉:9
-100円玉:28
-50円玉:28
-10円玉:11
-5円玉:0
-1円玉:319
+【各硬貨の枚数と総額】
+500円玉:18枚,9000円分
+100円玉:30枚,3000円分
+50円玉:43枚,2150円分
+10円玉:52枚,520円分
+5円玉:29枚,145円分
+1円玉:89枚,89円分
 
-総額:9129
+硬貨の総枚数:261枚
+
+総額:14904円
 ---------------------------------------
 mainクラス */
 
@@ -57,17 +59,21 @@ class Problem
 		
 		System.out.println();
 		
-		System.out.println("【各硬貨の枚数】");                      // 各硬貨の枚数をGetCountメソッドを使って各々返す
-		System.out.println("500円玉:" + cc.GetCount(500));
-		System.out.println("100円玉:" + cc.GetCount(100));
-		System.out.println("50円玉:" + cc.GetCount(50));
-		System.out.println("10円玉:" + cc.GetCount(10));
-		System.out.println("5円玉:" + cc.GetCount(5));
-		System.out.println("1円玉:" + cc.GetCount(1));
+		System.out.println("【各硬貨の枚数と総額】");                      // 各硬貨の枚数をGetCountメソッドを使って各々返す
+		System.out.println("500円玉:" + cc.GetCount(500) + "枚," + cc.GetAmount(500) + "円分");
+		System.out.println("100円玉:" + cc.GetCount(100) + "枚," + cc.GetAmount(100) + "円分");
+		System.out.println("50円玉:" + cc.GetCount(50) + "枚," + cc.GetAmount(50) + "円分");
+		System.out.println("10円玉:" + cc.GetCount(10) + "枚," + cc.GetAmount(10) + "円分");
+		System.out.println("5円玉:" + cc.GetCount(5) + "枚," + cc.GetAmount(5) + "円分");
+		System.out.println("1円玉:" + cc.GetCount(1) + "枚," + cc.GetAmount(1) + "円分");
 		
 		System.out.println();
 		
-		System.out.println("総額:" + cc.GetAmount());              //　コインケース内の金額（各々通貨 × 金額の和）を返す
+		System.out.println("硬貨の総枚数:" + cc.GetCount() + "枚");
+		
+		System.out.println();
+		
+		System.out.println("総額:" + cc.GetAmount() + "円");              //　コインケース内の金額（各々通貨 × 金額の和）を返す
 	}
 }
 
@@ -145,10 +151,46 @@ public class CoinCase
 		}
 	}
 	
+	public int GetCount()
+	{
+		return fh + oh + ft + ten + five + one;
+	}
+	
+	public int GetAmount(int cur)
+	{
+		if(cur == 500)
+		{
+			return fh * 500;
+		}
+		if(cur == 100)
+		{
+			return oh * 100;
+		}
+		if(cur == 50)
+		{
+			return ft * 50;
+		}
+		if(cur == 10)
+		{
+			return ten * 10;
+		}
+		if(cur == 5)
+		{
+			return five * 5;
+		}
+		if(cur == 1)
+		{
+			return one * 1;
+		}
+		else
+		{
+			return 0;
+		}
+	}
+	
 	public int GetAmount()                  // コインケース内の総額（コインの枚数 × 金額の合計）を返すメソッド
 	{
 		return fh * 500 + oh * 100 + ft * 50 + ten * 10 + five * 5 + one * 1;
 	}
 	
 }
-
