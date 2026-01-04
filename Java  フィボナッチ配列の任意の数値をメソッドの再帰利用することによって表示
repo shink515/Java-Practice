@@ -1,0 +1,27 @@
+package shinzato;
+import java.util.Scanner;
+
+class Problem
+{
+	public static void main(String args[])
+	{
+    Scanner sc = new Scanner(System.in);
+
+    System.out.print("0番目が0、1番目が1のフィボナッチ数列の任意の値を表示:");
+    int num = sc.nextInt();
+    sc.nextLine();
+
+    System.out.println();
+
+		System.out.print(num + "番目の数値:" + Calc(num) + "です。");
+
+	}
+	
+	public static int Calc(int num)
+	{
+		if(num == 0) return 0;
+		if(num == 1) return 1;
+		
+		return Calc(num - 2) + Calc(num - 1);
+	}
+}
