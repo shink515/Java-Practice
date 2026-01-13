@@ -1,0 +1,24 @@
+package shinzato;
+class Problem{
+	public static void main(String args[]) {
+		
+		// 真偽変数を用いる、初期を真
+		boolean flag = true;
+		
+		// iの初期値が1、iが10以下の限りiを＋1させながらブロックの処理を繰り返す
+		for(int i = 1 ; i <= 10 ; i++)
+		{
+			// 真偽変数が真の場合、ただ値を表示する
+			if(flag){
+				System.out.print(i);
+				
+				// 1回目が出力されたら真偽を偽にする　※最重要
+				flag = false;
+				
+				// 偽の場合、コンマを前置にして値を表示する（2回目以降の処理は全て排他ブロックとなる）
+			}else{
+				System.out.print("," + i);
+			}
+		}
+	}
+}
