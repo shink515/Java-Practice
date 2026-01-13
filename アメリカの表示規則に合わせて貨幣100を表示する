@@ -1,17 +1,17 @@
 package shinzato;
-import java.util.*;
-import java.text.*;
+import java.util.Locale;
+import java.text.NumberFormat;
 
 public class sample 
 {
 	public static void main(String[] args)
 	{
-		Locale jp = new Locale("en","US");
-		NumberFormat nfjp = NumberFormat.getCurrencyInstance(jp);
+		Locale us = new Locale("en","US");
+		NumberFormat nfus = NumberFormat.getCurrencyInstance(us);
 		
 		int number = 100;
 		
-		System.out.println("国名:" + jp.getDisplayCountry());
-		System.out.println("貨幣:" + nfjp.format(number));
+		System.out.println("国名:" + us.getDisplayCountry());
+		System.out.println("貨幣:" + nfus.format(number));
 	}
 }
