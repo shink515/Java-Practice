@@ -1,0 +1,35 @@
+*/ -------------------------------------------------------------------------------------------
+下記の実行結果に倣い、コンソールから、英単語を入力すると、それに対応する日本語が出てくるようにしなさい。
+なお、英語と日本語の対応には、HashMapを用いること。また、英語と日本語の対応は、以下の表を用いること。
+
+cat	猫
+dog	犬
+bird	鳥
+tiger	トラ
+---------------------------------------------------------------------------------------------- */
+
+package shinzato;
+import java.util.*;
+
+class Problem{
+	public static void main(String[] args) {
+		HashMap<String,String> hm = new HashMap<String,String>();
+		Scanner sc = new Scanner(System.in);
+		
+		hm.put("cat", "猫");
+		hm.put("dog", "犬");
+		hm.put("bird","鳥");
+		hm.put("tiger", "トラ");
+		
+		System.out.print("英語で動物の名前を入力してください:");
+		String key = sc.nextLine();
+		
+		System.out.println();
+		
+		if(hm.containsKey(key)) {
+			System.out.println("「" + hm.get(key) + "」です。");
+		}else {
+			System.out.println("対応するデータは登録されていません。");
+		}
+	}
+}
